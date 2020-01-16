@@ -1,134 +1,65 @@
-# natural-order
+# elm-vue-bridge
 
-### **Sort arrays of strings or objects naturally**
-
-**_Sorting with support for numbers, dates, unicode and more._**
-
-<a id="/features"></a>&nbsp;
-
-- Returns a new list
-- Sort an array of string _or_ objects in a natural way
-- Allows for sorting by nested objects
-- Numbers are handled properly – “2” is before “10”
-- Strings are after numbers
-- Empty strings are after “z”
-- “a” is before “B”
-- Semver-compatible sorting of version numbers
+### **Bridge to render Elm modules in a Vue application **
 
 <a id="/usage"></a>&nbsp;
 
 ## Usage
 
+Example: rendering Elm modules in a Vue CLI application.
+
+Terminal
+```
+npm install elm elm-webpack-loader elm-vue-bridge
+```
+
+vue.config.js
 ```javascript
-// ES6
-import naturalOrder from "natural-order";
-
-// CommonJS
-const naturalOrder = require("natural-order");
-
-naturalOrder: (list: any[], 
-               sortBy?: string[], 
-               orderBy?: 1 | -1 | "asc" | "desc" | ("asc" | "desc")[] | (1 | -1)[], 
-               options?: { blankAtTop?: boolean, caseSensitive?: boolean }
-              ) => any[]
+module.exports = {
+  configureWebpack: {
+    module: {
+      rules: [
+        {
+          test: /\.elm$/,
+          exclude: [/elm-stuff/, /node_modules/],
+          use: { loader: "elm-webpack-loader", options: {} }
+        }
+      ]
+    }
+  }
+};
 
 ```
 
-`list: any[]`
 
-any list (strings, numbers, or objects)
-
-`sortBy?: string[]`
-
-The keys by which to sort. May be null. If sorting objects, defaults to the first key it finds.
-
-`orderBy?: 1 | -1 | "asc" | "desc" | ("asc" | "desc")[] | (1 | -1)[]`
-
-Order by which to sort. Defaults to ascending. Enter a value for each key you are using for sorting.
-If not enough values are passed, the last provided will be used when they run out.
-(example: You may just pass "desc", and all keys will be sorted in descending order.)
-
-The number values 1 and -1 can be used instead of "asc" and "desc", respectively.
-
-`options?: { blankAtTop?: boolean, caseSensitive?: boolean}`
-
-Optional parameters:
-- blankAtTop: If true, places null or blank parameters opposite the order option
-  - If ascending, null or blank are at the top.
-  - If descending, null or blank are at the bottom.
-- caseSensitive: If true, capital letters are ranked higher than lowercase.
-
-<a id="/examples"></a>&nbsp;
-
-## Examples
-
+App.vue
 ```javascript
-const list = ["b", "z", "a"];
+<template>
+  <div id="app">
+    <Counter />
+  </div>
+</template>
 
-naturalOrder(list);
+<script>
+import elmBridge from "elm-vue-bridge"
 
-// ["a", "b", "z"]
-
-naturalOrder(list, null, "desc");
-
-// ["z", "b", "a"]
-
-naturalOrder(list, null, -1);
-
-// ["z", "b", "a"]
-
-const list2 = [{ name: "George" }, { name: "Fred" }, { name: "Alice" }];
-
-naturalOrder(list2, ["name"]);
-
-// [{name: "Alice"}, {name: "Fred""}, {name: "George"}]
-
-const list3 = [
-  { name: { first: "bob", last: "temple" } },
-  { name: { first: "steve", last: "martin" } },
-  { name: { first: "george", last: "martin" } },
-  { name: { first: "adam", last: "temple" } }
-];
-
-naturalOrder(list3, ["name.last", "name.first"]);
-
-// [ { name: { first: 'george', last: 'martin' } },
-//   { name: { first: 'steve', last: 'martin' } },
-//   { name: { first: 'adam', last: 'temple' } },
-//   { name: { first: 'bob', last: 'temple' } } ]
-
-naturalOrder(list3);
-
-// [ { name: { first: 'adam', last: 'temple' } },
-//   { name: { first: 'bob', last: 'temple' } },
-//   { name: { first: 'george', last: 'martin' } },
-//   { name: { first: 'steve', last: 'martin' } } ]
-
-const list4 = ["a", "B"];
-
-naturalOrder(list4, null, "asc", { caseSensitive: true });
-
-// ["B", "a"]
-
-const list5 = ["z", "", "a"];
-
-naturalOrder(list5);
-
-// ["a", "z", ""]
-
-naturalOrder(list5, null, "asc", { blankAtTop: true });
-
-// ["", "a", "z"]
-
+export default {
+  components: {
+    'Counter': elmBridge(require('./Counter.elm').Elm.Counter)
+  }
+}
+</script>
 ```
 
-<a id="/credits"></a>&nbsp;
+You can also pass in flags and ports as props:
 
-## Credits
-
-This project uses code from _[natural-sort](https://github.com/studio-b12/natural-sort)_ for its natural sorting method.
-
-<a id="/license"></a>&nbsp;
+```javascript
+<template>
+  <div id="app">
+    <Counter :flags="flags" :ports="ports" />
+  </div>
+</template>
+```
 
 ## License
 
