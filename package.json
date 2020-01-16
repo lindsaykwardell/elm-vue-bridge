@@ -1,0 +1,36 @@
+{
+  "name": "elm-vue-bridge",
+  "version": "0.1.0",
+  "author": "Lindsay Wardell",
+  "description": "Bridge to render Elm modules in a Vue application",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "scripts": {
+    "test": "jest --config jestconfig.json",
+    "lint": "tslint ./src/index.ts",
+    "build": "tsc",
+    "prepare": "npm run build",
+    "preversion": "npm run lint"
+  },
+  "keywords": [
+    "sort",
+    "order",
+    "natural"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lindsaykwardell/elm-vue-bridge.git"
+  },
+  "devDependencies": {
+    "@types/jest": "^24.0.18",
+    "jest": "^24.9.0",
+    "ts-jest": "^24.0.2",
+    "ts-node": "^8.3.0",
+    "tslint": "^5.20.0",
+    "typescript": "^3.6.3"
+  },
+  "files": [
+    "lib/**/*"
+  ]
+}
