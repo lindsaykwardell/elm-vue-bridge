@@ -1,6 +1,6 @@
 {
   "name": "elm-vue-bridge",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "Lindsay Wardell",
   "description": "Bridge to render Elm modules in a Vue application",
   "main": "lib/index.js",
@@ -13,9 +13,9 @@
     "preversion": "npm run lint"
   },
   "keywords": [
-    "sort",
-    "order",
-    "natural"
+    "elm",
+    "vue",
+    "component"
   ],
   "license": "MIT",
   "repository": {
