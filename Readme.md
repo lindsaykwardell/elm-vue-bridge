@@ -1,6 +1,6 @@
 # elm-vue-bridge
 
-### **Bridge to render Elm modules in a Vue application **
+### **Bridge to render Elm modules in a Vue application**
 
 <a id="/usage"></a>&nbsp;
 
