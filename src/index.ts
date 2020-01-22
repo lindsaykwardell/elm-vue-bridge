@@ -13,7 +13,7 @@ const elmBridge = (elm: ElmApp) => {
         required: false
       },
       flags: {
-        type: [String, Number, Object],
+        type: [String, Number, Object, Array, Boolean],
         required: false
       }
     },

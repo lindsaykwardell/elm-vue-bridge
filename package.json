@@ -1,6 +1,6 @@
 {
   "name": "elm-vue-bridge",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "author": "Lindsay Wardell",
   "description": "Bridge to render Elm modules in a Vue application",
   "main": "lib/index.js",
