@@ -8,7 +8,6 @@
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
     "serve": "vite preview",
-    "postinstall": "elm-tooling install",
     "prebuild": "elm-tooling install",
     "prepare": "npm run build"
   },
