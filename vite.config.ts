@@ -13,8 +13,8 @@ export default defineConfig({
     sourcemap: true,
     lib: {
       entry: path.resolve(__dirname, "src/lib/index.ts"),
-      name: "index",
-      fileName: (format) => `index.${format}.js`,
+      name: "elm-vue-bridge",
+      fileName: (format) => `elm-vue-bridge.${format}.js`,
     },
     rollupOptions: {
       // make sure to externalize deps that shouldn't be bundled
