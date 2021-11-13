@@ -2,11 +2,15 @@ import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
 import elmPlugin from "vite-plugin-elm";
 const path = require("path");
+import typescript from "@rollup/plugin-typescript";
+
+const resolvePath = (str: string) => path.resolve(__dirname, str);
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [vue(), elmPlugin()],
   build: {
+    sourcemap: true,
     lib: {
       entry: path.resolve(__dirname, "src/lib/index.ts"),
       name: "elm-vue-bridge",
@@ -23,6 +27,16 @@ export default defineConfig({
           vue: "Vue",
         },
       },
+      plugins: [
+        typescript({
+          target: "es2020",
+          rootDir: resolvePath("./src/lib"),
+          declaration: true,
+          declarationDir: resolvePath("./dist"),
+          exclude: resolvePath("./node_modules/**"),
+          allowSyntheticDefaultImports: true,
+        }),
+      ],
     },
   },
 });
