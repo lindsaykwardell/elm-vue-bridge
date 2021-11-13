@@ -2,15 +2,21 @@
 
 ### **Bridge to render Elm modules in a Vue application**
 
+Renders Elm modules within Vue 3. If you need to support Vue 2, please continue to use the previous major version.
+
 <a id="/usage"></a>&nbsp;
 
 ## Usage
 
-Example: rendering Elm modules in a Vue CLI application.
+### Vue CLI
 
 Terminal
-```
-npm install elm elm-webpack-loader elm-vue-bridge
+```bash
+# install dependencies
+npm install elm-tooling elm-webpack-loader elm-vue-bridge
+
+# run elm-tooling init
+npx elm-tooling init
 ```
 
 vue.config.js
@@ -31,33 +37,45 @@ module.exports = {
 
 ```
 
+### Vite
 
-App.vue
-```javascript
-<template>
-  <div id="app">
-    <Counter />
-  </div>
-</template>
+```bash
+# install dependencies
+npm install elm-tooling vite-plugin-elm elm-vue-bridge
 
-<script>
-import elmBridge from "elm-vue-bridge"
+# run elm-tooling init
+npx elm-tooling init
+```
+
+vite.config.js
+```js
+import elmPlugin from "vite-plugin-elm";
 
 export default {
-  components: {
-    'Counter': elmBridge(require('./Counter.elm').Elm.Counter)
-  }
+  plugins: [elmPlugin()]
 }
+```
+
+### App.vue
+```html
+<script setup>
+import { Elm } from "./Main.elm";
+import elmBridge from "./lib";
+
+const Counter = elmBridge(Elm);
 </script>
+
+<template>
+  <Counter />
+</template>
+
 ```
 
 You can also pass in flags and ports as props:
 
 ```javascript
 <template>
-  <div id="app">
-    <Counter :flags="flags" :ports="ports" />
-  </div>
+  <Counter :flags="flags" :ports="ports" />
 </template>
 ```
 
