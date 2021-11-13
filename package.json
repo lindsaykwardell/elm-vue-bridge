@@ -1,16 +1,16 @@
 {
   "name": "elm-vue-bridge",
-  "version": "1.0.0",
+  "version": "1.0.0-beta.2",
   "author": "Lindsay Wardell",
   "description": "Bridge to render Elm modules in a Vue application",
-  "main": "lib/index.js",
-  "types": "lib/index.d.ts",
+  "main": "dist/elm-vue-bridge.*.js",
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
     "serve": "vite preview",
     "postinstall": "elm-tooling install",
-    "prebuild": "elm-tooling install"
+    "prebuild": "elm-tooling install",
+    "prepare": "npm run build"
   },
   "dependencies": {
     "vue": "^3.2.16"
