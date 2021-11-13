@@ -8,7 +8,7 @@ export default defineConfig({
   plugins: [vue(), elmPlugin()],
   build: {
     lib: {
-      entry: path.resolve(__dirname, "lib/index.ts"),
+      entry: path.resolve(__dirname, "src/lib/index.ts"),
       name: "elm-vue-bridge",
       fileName: (format) => `elm-vue-bridge.${format}.js`,
     },
