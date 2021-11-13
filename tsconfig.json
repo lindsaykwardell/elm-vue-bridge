@@ -1,19 +1,15 @@
 {
   "compilerOptions": {
-    "module": "commonjs",
-    "esModuleInterop": true,
-    "target": "es5",
-    "noImplicitAny": true,
+    "target": "esnext",
+    "useDefineForClassFields": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "strict": true,
+    "jsx": "preserve",
     "sourceMap": true,
-    "outDir": "./lib",
-    "declaration": true,
-    "lib": [
-      "es2015",
-      "es5",
-      "es6",
-      "esnext.asynciterable",
-      "dom"
-    ],
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "lib": ["esnext", "dom"]
   },
-  "include": ["src/**/*"]
+  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"]
 }
