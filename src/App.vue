@@ -1,10 +1,12 @@
 <script setup lang="ts">
 import { Elm } from "./Main.elm";
-import ElmModule from "./lib";
+import elmBridge from "./lib";
+
+const Counter = elmBridge(Elm);
 </script>
 
 <template>
-  <ElmModule :elm="Elm" />
+  <Counter />
 </template>
 
 <style>
