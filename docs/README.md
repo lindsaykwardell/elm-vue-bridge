@@ -4,8 +4,11 @@ title: Home
 heroImage: /images/elm.png
 actions:
   - text: Get Started
-    link: /getting-started.html
+    link: /getting-started
     type: primary
+  - text: Learn More
+    link: /introduction
+    type: secondary
 features:
   - title: Elm as Components
     details: Import Elm modules, and wrap them in a custom Vue component for easy integration in a Vue app.

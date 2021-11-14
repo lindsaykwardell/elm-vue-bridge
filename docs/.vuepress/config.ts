@@ -11,7 +11,7 @@ export default defineUserConfig<DefaultThemeOptions>({
   themeConfig: {
     logo: "/images/elm.png",
     sidebar: [
-      // "/introduction.md",
+      "/introduction.md",
       "/getting-started.md",
       "/component.md",
       "/flags.md",
