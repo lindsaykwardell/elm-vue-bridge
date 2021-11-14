@@ -9,7 +9,7 @@ export default defineUserConfig<DefaultThemeOptions>({
   description: "Render Elm modules in a Vue app",
 
   themeConfig: {
-    logo: "https://vuejs.org/images/logo.png",
+    logo: "/images/elm.png",
     sidebar: [
       // "/introduction.md",
       "/getting-started.md",

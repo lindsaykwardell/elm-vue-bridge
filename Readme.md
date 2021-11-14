@@ -8,6 +8,8 @@ Renders Elm modules within Vue 3. If you need to support Vue 2, please continue 
 
 ## Usage
 
+[Check out the docs](https://elm-vue-bridge.lindsaykwardell.com/) for full explanation of how to use this package. For quick setup, read on!
+
 ### Vue CLI
 
 Terminal
