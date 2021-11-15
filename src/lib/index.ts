@@ -1,19 +1,6 @@
 import { ref, onMounted, defineComponent, h } from "vue";
 
-type ElmApp = {
-  init: (input: {
-    node: HTMLElement;
-    flags:
-      | string
-      | number
-      | boolean
-      | unknown[]
-      | Record<string, any>
-      | undefined;
-  }) => { ports: any };
-};
-
-const elmBridge = (elm: ElmApp, name?: string) => {
+const elmBridge = (elm: unknown, name?: string) => {
   return defineComponent({
     name,
     props: {

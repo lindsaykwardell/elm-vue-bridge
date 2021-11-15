@@ -16,11 +16,16 @@ export default defineUserConfig<DefaultThemeOptions>({
       "/component.md",
       "/flags.md",
       "/ports.md",
+      "/api.md",
     ],
     navbar: [
       {
         text: "Getting Started",
         link: "/getting-started",
+      },
+      {
+        text: "API",
+        link: "/api",
       },
       {
         text: "Elm Guide",
