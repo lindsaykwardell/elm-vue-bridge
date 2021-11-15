@@ -13,8 +13,9 @@ type ElmApp = {
   }) => { ports: any };
 };
 
-const elmBridge = (elm: ElmApp) => {
+const elmBridge = (elm: ElmApp, name?: string) => {
   return defineComponent({
+    name,
     props: {
       ports: {
         type: Function,
