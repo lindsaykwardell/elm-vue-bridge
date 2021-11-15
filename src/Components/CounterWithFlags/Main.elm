@@ -1,4 +1,4 @@
-module WithFlags exposing (main)
+module Components.CounterWithFlags.Main exposing (main)
 
 import Browser
 import Html exposing (button, div, text)

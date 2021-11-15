@@ -1,4 +1,4 @@
-port module WithPorts exposing (main)
+port module Components.CounterWithPorts.Main exposing (main)
 
 import Browser
 import Html exposing (button, div, text)

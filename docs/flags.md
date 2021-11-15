@@ -63,3 +63,11 @@ const WithFlags = elmBridge(Elm);
   <WithFlags :flags="2" />
 </template>
 ```
+
+## Example
+
+<CounterWithFlags />
+
+<script setup>
+  import CounterWithFlags from '../../../.vuepress/components/CounterWithFlags.vue'
+</script>

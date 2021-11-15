@@ -1,7 +1,7 @@
 import { defineUserConfig } from "vuepress";
 import type { DefaultThemeOptions } from "vuepress";
 import elmPlugin from "vite-plugin-elm";
-const path = require("path");
+const { path } = require("@vuepress/utils");
 
 export default defineUserConfig<DefaultThemeOptions>({
   lang: "en-US",

@@ -48,3 +48,11 @@ const Counter = elmBridge(Elm);
   <Counter />
 </template>
 ```
+
+## Example
+
+<Counter />
+
+<script setup>
+  import Counter from '../../../.vuepress/components/Counter.vue'
+</script>

@@ -89,3 +89,10 @@ function ports(ports) {
 </template>
 ```
 
+## Example
+
+<CounterWithPorts />
+
+<script setup>
+  import CounterWithPorts from '../../../.vuepress/components/CounterWithPorts.vue'
+</script>
