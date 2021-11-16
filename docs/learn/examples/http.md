@@ -6,7 +6,7 @@
 # HTTP Request
 
 <CodeGroup>
-<CodeGroupItem title="Vue">
+  <CodeGroupItem title="Vue">
 
 ```vue
 <script setup lang="ts">
