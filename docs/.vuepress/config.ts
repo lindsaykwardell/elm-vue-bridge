@@ -10,22 +10,32 @@ export default defineUserConfig<DefaultThemeOptions>({
 
   themeConfig: {
     logo: "/images/elm.png",
-    sidebar: [
-      "/introduction.md",
-      "/getting-started.md",
-      "/component.md",
-      "/flags.md",
-      "/ports.md",
-      "/api.md",
-    ],
+    sidebar: {
+      "/": [
+        {
+          text: "Guide",
+          children: [
+            "/guide/introduction.md",
+            "/guide/getting-started.md",
+            "/guide/component.md",
+            "/guide/flags.md",
+            "/guide/ports.md",
+          ],
+        },
+        {
+          text: "API",
+          children: ["/api.md"],
+        },
+      ],
+    },
     navbar: [
       {
         text: "Getting Started",
-        link: "/getting-started",
+        link: "/guide/getting-started",
       },
       {
         text: "API",
-        link: "/api",
+        link: "/guide/api",
       },
       {
         text: "Elm Guide",

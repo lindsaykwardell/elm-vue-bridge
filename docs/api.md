@@ -1,4 +1,4 @@
-# API
+# elmBridge
 
 ```ts
 function elmBridge(elm: unknown, name?: string): DefineComponent<{...}>

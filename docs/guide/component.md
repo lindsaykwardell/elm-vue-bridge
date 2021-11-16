@@ -1,4 +1,10 @@
-# Create a Component
+<script setup>
+  import Counter from '../../../../.vuepress/components/Counter.vue'
+</script>
+
+# Create a Counter Component
+
+## Elm Module
 
 Now that your application is configured to handle Elm code, let's import an Elm module into our app. Create a file called `Main.elm` at the root of your `src` folder, and put the following content in it:
 
@@ -32,6 +38,8 @@ view model =
 main = Browser.sandbox { init = init, update = update, view = view }
 ```
 
+## Vue Component
+
 Now, in your `App.vue` file (or whichever Vue component you want to use), import our Elm module and the bridge, and do the following:
 
 ```vue
@@ -52,7 +60,3 @@ const Counter = elmBridge(Elm);
 ## Example
 
 <Counter />
-
-<script setup>
-  import Counter from '../../../.vuepress/components/Counter.vue'
-</script>

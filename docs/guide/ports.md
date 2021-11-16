@@ -1,4 +1,10 @@
+<script setup>
+  import CounterWithPorts from '../../../../.vuepress/components/CounterWithPorts.vue'
+</script>
+
 # Ports
+
+## What are Ports?
 
 From [the Elm docs](https://guide.elm-lang.org/interop/ports.html):
 
@@ -10,10 +16,12 @@ They're also great for communicating with a Vue app! For example, if props to ou
 
 In `elm-vue-bridge`, the `ports` prop takes a function. This function receives an object with all the ports provided by Elm, which can then be subscribed to or used to send messages. 
 
-Let's look at a basic example of using ports with `elm-vue-bridge`. First, here's an example Elm module:
+## Add ports to Elm
+
+Let's look at a basic example of using ports with `elm-vue-bridge`. First, update your `Main.elm` to the below:
 
 ```elm
-port module WithPorts exposing (main)
+port module Main exposing (main)
 
 import Browser
 import Html exposing (button, div, text)
@@ -66,33 +74,38 @@ main =
     Browser.element { init = init, update = update, view = view, subscriptions = subscriptions }
 ```
 
+## Utilize ports in Vue
+
 Now, in our Vue component, we can both subscribe to and send messages to Elm. If you're unfamiliar with the syntax, check out Elm's documentation on "Outgoing Messages" and "Incoming Messages".
 
 ```vue
 <script setup>
-import { Elm } from "./WithPorts.elm";
+import { ref } from "vue";
+import { Elm } from "./Main.elm";
 import elmBridge from "./lib";
 
-const WithPorts = elmBridge(Elm);
+const Counter = elmBridge(Elm);
+const counter = ref(2);
 
 function ports(ports) {
-  ports.receiveCount.send(2);
+  ports.receiveCount.send(counter.value);
 
   ports.sendCount.subscribe((count) => {
     console.log(count);
+    counter.value = count;
   });
 }
 </script>
 
 <template>
-  <WithPorts :flags="0" :ports="ports" />
+  <CounterWithPorts :flags="0" :ports="ports" />
+  The value in Vue is: {{ counter }}
 </template>
+
 ```
+
+
 
 ## Example
 
 <CounterWithPorts />
-
-<script setup>
-  import CounterWithPorts from '../../../.vuepress/components/CounterWithPorts.vue'
-</script>

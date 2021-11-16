@@ -4,10 +4,10 @@ title: Home
 heroImage: /images/elm.png
 actions:
   - text: Get Started
-    link: /getting-started
+    link: /guide/getting-started
     type: primary
   - text: Learn More
-    link: /introduction
+    link: /guide/introduction
     type: secondary
 features:
   - title: Functional Programming
