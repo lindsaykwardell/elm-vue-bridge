@@ -1,7 +1,7 @@
 import { createRouter, createWebHashHistory } from "vue-router";
 
 import Home from "../views/Home.vue";
-import Http from "../views/Http.vue";
+import Http from "../Components/Examples/Http/Http.vue";
 
 export default createRouter({
   routes: [
