@@ -26,6 +26,18 @@ export default defineUserConfig<DefaultThemeOptions>({
           text: "API",
           children: ["/api.md"],
         },
+        {
+          text: "Learn Elm",
+          children: [
+            "/learn/why-elm.md",
+            {
+              text: "Examples",
+              children: [
+                "/learn/examples/http.md",
+              ]
+            }
+          ]
+        }
       ],
     },
     navbar: [
