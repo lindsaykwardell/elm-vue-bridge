@@ -20,6 +20,7 @@ export default defineUserConfig<DefaultThemeOptions>({
             "/guide/component.md",
             "/guide/flags.md",
             "/guide/ports.md",
+            "/guide/props-and-events.md"
           ],
         },
         {

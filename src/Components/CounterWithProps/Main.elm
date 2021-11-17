@@ -1,4 +1,4 @@
-port module Components.Props.Main exposing (main)
+port module Components.CounterWithProps.Main exposing (main)
 
 import Browser
 import Html exposing (Html, button, div, text)
