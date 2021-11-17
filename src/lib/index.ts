@@ -57,7 +57,7 @@ const elmBridge = (
       onMounted(() => {
         let flags = props?.flags;
 
-        if (!flags) {
+        if (!flags && typeof options !== "string" && options?.props) {
           flags = {};
 
           Object.keys(
@@ -79,9 +79,7 @@ const elmBridge = (
           props?.ports?.(app.ports);
 
           if (typeof options !== "string") {
-            console.log("here");
             options?.emit?.forEach((key) => {
-              console.log(key);
               app?.ports[key].subscribe((value) => emit(key, value));
             });
           }
