@@ -13,8 +13,13 @@ import Json.Encode as Encode
 type alias Model =
     { input : String
     , status : Status
-    , response : Maybe Todo
     }
+
+
+type Msg
+    = InputText String
+    | SubmitTodo
+    | GotResponse (Result Http.Error Todo)
 
 
 type alias Todo =
@@ -22,6 +27,13 @@ type alias Todo =
     , title : String
     , completed : Bool
     }
+
+
+type Status
+    = Idle
+    | Running
+    | Success Todo
+    | Failure
 
 
 decodeTodo : Decoder Todo
@@ -41,23 +53,6 @@ encodeTodo todo =
         ]
 
 
-type Msg
-    = InputText String
-    | SubmitTodo
-    | GotResponse (Result Http.Error Todo)
-
-
-
--- | GotPosts (Result Http.Error (List Post))
-
-
-type Status
-    = Idle
-    | Running
-    | Success
-    | Failure
-
-
 main : Program () Model Msg
 main =
     Browser.element
@@ -72,7 +67,6 @@ init : ( Model, Cmd Msg )
 init =
     ( { input = ""
       , status = Idle
-      , response = Nothing
       }
     , Cmd.none
     )
@@ -88,11 +82,11 @@ update msg model =
             ( { model | status = Running }, submitTodo model.input )
 
         GotResponse (Result.Ok todo) ->
-            ( { model | status = Success, response = Just todo }
+            ( { model | status = Success todo }
             , Cmd.none
             )
 
-        GotResponse (Result.Err _) ->
+        GotResponse (Result.Err err) ->
             ( { model | status = Failure }
             , Cmd.none
             )
@@ -108,12 +102,18 @@ view model =
             ]
             [ text <| submitButtonText model.status ]
         , div []
-            [ case model.response of
-                Nothing ->
+            [ case model.status of
+                Success todo ->
+                    encodeTodo todo |> Encode.encode 4 |> text
+
+                Running ->
                     text <| "No response yet"
 
-                Just todo ->
-                    encodeTodo todo |> Encode.encode 4 |> text
+                Idle ->
+                    text <| "No response yet"
+
+                Failure ->
+                    text <| "Error"
             ]
         ]
 
@@ -127,7 +127,7 @@ submitButtonText status =
         Running ->
             "Adding..."
 
-        Success ->
+        Success _ ->
             "Added!"
 
         Failure ->

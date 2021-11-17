@@ -35,6 +35,7 @@ const encodedTodo = computed(() => JSON.stringify(response.value));
 
 function submitTodo() {
   status.value = Status.Running;
+  response.value = null;
   fetch("https://jsonplaceholder.typicode.com/todos", {
     method: "POST",
     headers: {
@@ -76,7 +77,8 @@ function validateResponse(res: Todo) {
       {{ submitButtonText }}
     </button>
     <div>
-      <template v-if="response === null">No response yet</template>
+      <template v-if="status === Status.Failure">Error</template>
+      <template v-else-if="response === null">No response yet</template>
       <template v-else>{{ encodedTodo }}</template>
     </div>
   </div>
