@@ -1,8 +1,26 @@
-import { ref, onMounted, defineComponent, h } from "vue";
+import { ref, watch, onMounted, defineComponent, h } from "vue";
 
-const elmBridge = (elm: unknown, name?: string) => {
+type App = {
+  ports: {
+    [key: string]: {
+      send: (value: unknown) => void;
+      subscribe: (callback: (value: unknown) => void) => () => void;
+    };
+  };
+};
+
+const elmBridge = (
+  elm: unknown,
+  options?: string | { name?: string; props?: any; emit?: string[] }
+) => {
+  const name =
+    typeof options === "string" ? options : options?.name || "ElmBridge";
+
+  const mixin = typeof options !== "string" ? (options as any) : {};
+
   return defineComponent({
     name,
+    mixins: [mixin],
     props: {
       ports: {
         type: Function,
@@ -13,10 +31,15 @@ const elmBridge = (elm: unknown, name?: string) => {
         required: false,
       },
     },
-    setup(props) {
+    setup(props, { emit }) {
+      let app: null | App = null;
       const mountable = ref();
 
-      function findInit(elm: any): any {
+      watch(props, () => app?.ports.updateProps?.send(props));
+
+      function findInit(
+        elm: any
+      ): null | ((init: { node: HTMLElement; flags: any }) => App) {
         if (Object.keys(elm).includes("init")) {
           return elm.init;
         }
@@ -28,17 +51,40 @@ const elmBridge = (elm: unknown, name?: string) => {
           }
         }
 
-        return false;
+        return null;
       }
 
       onMounted(() => {
-        const app = findInit(elm)({
-          node: mountable.value,
-          flags: props?.flags,
-        });
+        let flags = props?.flags;
 
-        if (props.ports) {
-          props.ports(app.ports);
+        if (!flags) {
+          flags = {};
+
+          Object.keys(
+            (typeof options !== "string" && options?.props) || {}
+            // @ts-ignore
+          ).forEach((key) => (flags[key] = props?.[key]));
+        }
+
+        app =
+          findInit(elm)?.({
+            node: mountable.value,
+            flags: flags,
+          }) || null;
+
+        if (
+          app &&
+          (props.ports || (typeof options !== "string" && options?.emit))
+        ) {
+          props?.ports?.(app.ports);
+
+          if (typeof options !== "string") {
+            console.log("here");
+            options?.emit?.forEach((key) => {
+              console.log(key);
+              app?.ports[key].subscribe((value) => emit(key, value));
+            });
+          }
         }
       });
 

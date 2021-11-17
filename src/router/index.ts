@@ -1,7 +1,8 @@
 import { createRouter, createWebHashHistory } from "vue-router";
 
 import Home from "../views/Home.vue";
-import Http from "../Components/Examples/Http/Http.vue";
+import Http from "../views/Http.vue";
+import Props from "../views/Props.vue";
 
 export default createRouter({
   routes: [
@@ -14,6 +15,11 @@ export default createRouter({
       path: "/http",
       name: "http",
       component: Http,
+    },
+    {
+      path: "/props",
+      name: "props",
+      component: Props,
     },
   ],
   history: createWebHashHistory(),
