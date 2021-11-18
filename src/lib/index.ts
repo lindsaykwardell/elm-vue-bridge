@@ -35,7 +35,7 @@ const elmBridge = (
       let app: null | App = null;
       const mountable = ref();
 
-      watch(props, () => app?.ports.updateProps?.send(props));
+      if (props) watch(props, () => app?.ports.updateProps?.send(props));
 
       function findInit(
         elm: any
