@@ -2,7 +2,7 @@
   import CounterWithProps from '../../../../.vuepress/components/CounterWithProps.vue'
 </script>
 
-# Vue-style Props and Events
+# Props and Events
 
 If you are more familiar with Vue's syntax for props and listening to events, having two values (flags and ports) may be a bit awkward. While this is the terminology and syntax used by Elm, it may be more comfortable to use a more Vue-centric syntax when integrating with an existing app.
 
