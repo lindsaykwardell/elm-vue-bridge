@@ -1,4 +1,4 @@
-import { ref, watch, onMounted, defineComponent, h } from "vue";
+import { ref, computed, watch, onMounted, defineComponent, h } from "vue";
 
 type App = {
   ports: {
@@ -35,7 +35,10 @@ const elmBridge = (
       let app: null | App = null;
       const mountable = ref();
 
-      if (props) watch(props, () => app?.ports.updateProps?.send(props));
+      const computedProps = computed(() => props);
+
+      if (props)
+        watch(computedProps, () => app?.ports.updateProps?.send(props));
 
       function findInit(
         elm: any
