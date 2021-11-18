@@ -1,0 +1,11 @@
+.vscode
+docs
+public
+src
+test
+elm-stuff
+elm-tooling.json
+elm.json
+vite.config.ts
+tsconfig.json
+index.html
