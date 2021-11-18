@@ -20,7 +20,7 @@ export default defineUserConfig<DefaultThemeOptions>({
             "/guide/component.md",
             "/guide/flags.md",
             "/guide/ports.md",
-            "/guide/props-and-events.md"
+            "/guide/props-and-events.md",
           ],
         },
         {
@@ -33,12 +33,10 @@ export default defineUserConfig<DefaultThemeOptions>({
             "/learn/why-elm.md",
             {
               text: "Examples",
-              children: [
-                "/learn/examples/http.md",
-              ]
-            }
-          ]
-        }
+              children: ["/learn/examples/crud.md", "/learn/examples/http.md"],
+            },
+          ],
+        },
       ],
     },
     navbar: [
@@ -64,7 +62,11 @@ export default defineUserConfig<DefaultThemeOptions>({
   bundler: "@vuepress/bundler-vite",
   bundlerConfig: {
     viteOptions: {
-      plugins: [elmPlugin()],
+      plugins: [
+        elmPlugin({
+          debug: true,
+        }),
+      ],
     },
   },
 

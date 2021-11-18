@@ -3,6 +3,7 @@ import { createRouter, createWebHashHistory } from "vue-router";
 import Home from "../views/Home.vue";
 import Http from "../views/Http.vue";
 import Props from "../views/Props.vue";
+import Crud from "../views/Crud.vue";
 
 export default createRouter({
   routes: [
@@ -20,6 +21,11 @@ export default createRouter({
       path: "/props",
       name: "props",
       component: Props,
+    },
+    {
+      path: "/crud",
+      name: "crud",
+      component: Crud,
     },
   ],
   history: createWebHashHistory(),
