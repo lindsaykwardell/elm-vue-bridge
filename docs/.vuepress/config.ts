@@ -62,11 +62,7 @@ export default defineUserConfig<DefaultThemeOptions>({
   bundler: "@vuepress/bundler-vite",
   bundlerConfig: {
     viteOptions: {
-      plugins: [
-        elmPlugin({
-          debug: true,
-        }),
-      ],
+      plugins: [elmPlugin({})],
     },
   },
 
