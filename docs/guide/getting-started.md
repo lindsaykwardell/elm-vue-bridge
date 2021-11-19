@@ -5,6 +5,22 @@ In order to write and utilize Elm modules in our application, there is a bit of 
 ## Install dependencies
 
 <CodeGroup>
+  <CodeGroupItem title="Vite" active>
+  
+```bash
+# Install dependencies
+
+npm install --save-dev elm-tooling vite-plugin-elm elm-vue-bridge
+
+# Initialize elm tooling
+
+npx elm-tooling init
+npx elm init
+
+```
+
+  </CodeGroupItem>
+
   <CodeGroupItem title="Vue CLI">
 
 ```bash
@@ -21,26 +37,39 @@ npx elm init
 
   </CodeGroupItem>
 
-  <CodeGroupItem title="Vite" active>
+  <CodeGroupItem title="Nuxt 3 (Vite)">
   
 ```bash
-# Install dependencies
+# install dependencies
+npm install elm-vue-bridge
+npm install --save-dev elm-tooling vite-plugin-elm
 
-npm install --save-dev elm-tooling vite-plugin-elm elm-vue-bridge
-
-# Initialize elm tooling
-
+# run elm-tooling init
 npx elm-tooling init
 npx elm init
-
 ```
-
+  
   </CodeGroupItem>
+
 </CodeGroup>
 
 ## Configure bundler
 
 <CodeGroup>
+  <CodeGroupItem title="Vite" active>
+
+```js
+// Configure vite.config.js
+
+import elmPlugin from "vite-plugin-elm";
+
+export default {
+  plugins: [elmPlugin()]
+}
+```
+
+  </CodeGroupItem>
+
   <CodeGroupItem title="Vue CLI">
 
 ```js
@@ -63,19 +92,25 @@ module.exports = {
 
   </CodeGroupItem>
 
-  <CodeGroupItem title="Vite" active>
+  <CodeGroupItem title="Nuxt 3 (Vite)">
 
 ```js
-// Configure vite.config.js
+// Configure nuxt.config.ts
 
+import { defineNuxtConfig } from "nuxt3";
 import elmPlugin from "vite-plugin-elm";
 
-export default {
-  plugins: [elmPlugin()]
-}
-```
+// https://v3.nuxtjs.org/docs/directory-structure/nuxt.config
+export default defineNuxtConfig({
+  vite: {
+    plugins: [elmPlugin()],
+  },
+});
 
+```
+  
   </CodeGroupItem>
+  
 </CodeGroup>
 
 ## Update .gitignore

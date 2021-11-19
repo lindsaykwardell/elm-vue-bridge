@@ -10,15 +10,38 @@ Renders Elm modules within Vue 3. If you need to support Vue 2, please continue 
 
 [Check out the docs](https://elm-vue-bridge.lindsaykwardell.com/) for full explanation of how to use this package. For quick setup, read on!
 
+### Vite
+
+```bash
+# install dependencies
+npm install elm-vue-bridge
+npm install --save-dev elm-tooling vite-plugin-elm 
+
+# run elm-tooling init
+npx elm-tooling init
+npx elm init
+```
+
+vite.config.js
+```js
+import elmPlugin from "vite-plugin-elm";
+
+export default {
+  plugins: [elmPlugin()]
+}
+```
+
 ### Vue CLI
 
 Terminal
 ```bash
 # install dependencies
-npm install elm-tooling elm-webpack-loader elm-vue-bridge
+npm install elm-vue-bridge
+npm install --save-dev elm-tooling elm-webpack-loader
 
 # run elm-tooling init
 npx elm-tooling init
+npx elm init
 ```
 
 vue.config.js
@@ -39,23 +62,30 @@ module.exports = {
 
 ```
 
-### Vite
+### Nuxt 3 (Vite enabled)
 
 ```bash
 # install dependencies
-npm install elm-tooling vite-plugin-elm elm-vue-bridge
+npm install elm-vue-bridge
+npm install --save-dev elm-tooling vite-plugin-elm
 
 # run elm-tooling init
 npx elm-tooling init
+npx elm init
 ```
 
-vite.config.js
+nuxt.config.ts
 ```js
+import { defineNuxtConfig } from "nuxt3";
 import elmPlugin from "vite-plugin-elm";
 
-export default {
-  plugins: [elmPlugin()]
-}
+// https://v3.nuxtjs.org/docs/directory-structure/nuxt.config
+export default defineNuxtConfig({
+  vite: {
+    plugins: [elmPlugin()],
+  },
+});
+
 ```
 
 ### App.vue
