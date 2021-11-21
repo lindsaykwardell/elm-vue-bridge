@@ -13,11 +13,11 @@ Renders Elm modules within Vue 3. If you need to support Vue 2, please continue 
 ### Vite
 
 ```bash
-# install dependencies
+# Install dependencies
 npm install elm-vue-bridge
 npm install --save-dev elm-tooling vite-plugin-elm 
 
-# run elm-tooling init
+# Initialize elm tooling
 npx elm-tooling init
 npx elm init
 ```
@@ -35,11 +35,11 @@ export default {
 
 Terminal
 ```bash
-# install dependencies
+# Install dependencies
 npm install elm-vue-bridge
 npm install --save-dev elm-tooling elm-webpack-loader
 
-# run elm-tooling init
+# Initialize elm tooling
 npx elm-tooling init
 npx elm init
 ```
@@ -65,11 +65,11 @@ module.exports = {
 ### Nuxt 3 (Vite enabled)
 
 ```bash
-# install dependencies
+# Install dependencies
 npm install elm-vue-bridge
 npm install --save-dev elm-tooling vite-plugin-elm
 
-# run elm-tooling init
+# Initialize elm tooling
 npx elm-tooling init
 npx elm init
 ```

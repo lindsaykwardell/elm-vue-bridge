@@ -9,14 +9,12 @@ In order to write and utilize Elm modules in our application, there is a bit of 
   
 ```bash
 # Install dependencies
-
-npm install --save-dev elm-tooling vite-plugin-elm elm-vue-bridge
+npm install elm-vue-bridge
+npm install --save-dev elm-tooling vite-plugin-elm 
 
 # Initialize elm tooling
-
 npx elm-tooling init
 npx elm init
-
 ```
 
   </CodeGroupItem>
@@ -25,14 +23,12 @@ npx elm init
 
 ```bash
 # Install dependencies
-
-npm install --save-dev elm-tooling elm-webpack-loader elm-vue-bridge
+npm install elm-vue-bridge
+npm install --save-dev elm-tooling elm-webpack-loader
 
 # Initialize elm tooling
-
 npx elm-tooling init
 npx elm init
-
 ```
 
   </CodeGroupItem>
@@ -40,11 +36,11 @@ npx elm init
   <CodeGroupItem title="Nuxt 3 (Vite)">
   
 ```bash
-# install dependencies
+# Install dependencies
 npm install elm-vue-bridge
 npm install --save-dev elm-tooling vite-plugin-elm
 
-# run elm-tooling init
+# Initialize elm tooling
 npx elm-tooling init
 npx elm init
 ```
