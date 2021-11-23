@@ -4,10 +4,10 @@
 
 Renders Elm modules within Vue 3. If you need to support Vue 2, please continue to use the previous major version.
 
-![Github Actions CI][github-actions-ci-src]][github-actions-ci-href]
-![npm version][npm-version-src]][npm-version-href]
-![npm downloads][npm-downloads-src]][npm-downloads-href]
-![License][license-src]][license-href]
+[![Github Actions CI][github-actions-ci-src]][github-actions-ci-href]
+[![npm version][npm-version-src]][npm-version-href]
+[![npm downloads][npm-downloads-src]][npm-downloads-href]
+[![License][license-src]][license-href]
 
 <a id="/usage"></a>&nbsp;
 
