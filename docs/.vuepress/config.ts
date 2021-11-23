@@ -33,7 +33,11 @@ export default defineUserConfig<DefaultThemeOptions>({
             "/learn/why-elm.md",
             {
               text: "Examples",
-              children: ["/learn/examples/crud.md", "/learn/examples/http.md"],
+              children: [
+                "/learn/examples/components.md",
+                "/learn/examples/crud.md",
+                "/learn/examples/http.md",
+              ],
             },
           ],
         },
