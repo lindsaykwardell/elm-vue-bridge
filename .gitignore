@@ -6,3 +6,4 @@ dist-ssr
 elm-stuff
 .temp
 .cache
+cypress/videos

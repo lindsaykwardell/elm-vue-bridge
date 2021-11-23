@@ -9,3 +9,5 @@ elm.json
 vite.config.ts
 tsconfig.json
 index.html
+cypress
+cypress.json

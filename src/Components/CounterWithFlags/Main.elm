@@ -2,7 +2,7 @@ module Components.CounterWithFlags.Main exposing (main)
 
 import Browser
 import Html exposing (Html, button, div, text)
-import Html.Attributes exposing (style)
+import Html.Attributes exposing (id, style)
 import Html.Events exposing (onClick)
 
 
@@ -33,7 +33,8 @@ update msg model =
 view : Model -> Html Msg
 view model =
     div
-        [ style "display" "flex"
+        [ id "counter"
+        , style "display" "flex"
         , style "justify-content" "center"
         , style "gap" "15px"
         , style "padding" "15px"

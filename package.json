@@ -8,7 +8,10 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "serve": "vite preview",
+    "test:unit": "cypress open-ct",
+    "test:unit:ci": "cypress run-ct --quiet --reporter spec",
+    "test:e2e": "start-server-and-test serve 5050 'cypress open'",
+    "test:e2e:ci": "start-server-and-test serve 5050 'cypress run'",
     "prebuild": "elm-tooling install",
     "prepare": "npm run build",
     "docs:dev": "vuepress dev docs",
@@ -18,12 +21,16 @@
     "vue": "^3.2.16"
   },
   "devDependencies": {
+    "@cypress/vite-dev-server": "^2.2.1",
+    "@cypress/vue": "^3.0.5",
     "@rollup/plugin-typescript": "^8.3.0",
+    "@testing-library/cypress": "^8.0.2",
     "@types/node": "^16.11.7",
     "@vitejs/plugin-vue": "^1.9.3",
     "@vue/component-compiler-utils": "^3.3.0",
     "@vuepress/bundler-vite": "^2.0.0-beta.27",
     "@vuepress/plugin-search": "^2.0.0-beta.27",
+    "cypress": "^9.1.0",
     "elm-tooling": "^1.6.0",
     "tslib": "^2.3.1",
     "typescript": "^4.4.3",
