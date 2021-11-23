@@ -8,10 +8,9 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "lint": "vue-tsc --noEmit",
     "test:unit": "cypress open-ct",
     "test:unit:ci": "cypress run-ct --quiet --reporter spec",
-    "test:e2e": "start-server-and-test serve 5050 'cypress open'",
-    "test:e2e:ci": "start-server-and-test serve 5050 'cypress run'",
     "prebuild": "elm-tooling install",
     "prepare": "npm run build",
     "docs:dev": "vuepress dev docs",
