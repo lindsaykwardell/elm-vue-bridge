@@ -11,7 +11,7 @@ function elmBridge(
 
 ### `elm`
 
-- Type: `unknown` (Elm apps tend to have nested objects, and so it is easier to treat then as unknown for our needs).
+- Type: `unknown` (Elm apps tend to have nested objects, and so it is easier to treat them as unknown for our needs).
 - Required: `true`
 
 This is the Elm app we are wrapping in a Vue component.
