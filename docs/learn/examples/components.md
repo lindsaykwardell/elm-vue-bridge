@@ -224,6 +224,10 @@ In this way, we are passing responsibility for the changes back to the Input mod
 
 A great example of reusable Elm modules for UI would be [`NoRedInk/noredink-ui`](https://package.elm-lang.org/packages/NoRedInk/noredink-ui/latest/), a publicly viewable library of UI widgets built using Elm. It is primarily a UI layer, and so it can be used with a `view` function to render common elements such as buttons or inputs. But all of these widgets are still, at the end of the day, pure functions, and are returning events that trigger calls to the `update` function.
 
+## Handling Multiple Files
+
+The above example is primarily intended to show how two Elm modules could interact in a comparable way to Vue. However, this is not the recommended approach to building Elm applications. Rather than breaking down our application into lots of smaller files, it is typically preferrable to build modules around data types, and only break into two or three files as distinct data types arise. For an excellent example of how this type of development can work, please watch the below video presentation, "The Life of a File", by the creator of Elm, Evan Czaplicki.
+
 <div style="text-align: center">
   <iframe width="560" height="315" src="https://www.youtube.com/embed/XpDsk374LDE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
