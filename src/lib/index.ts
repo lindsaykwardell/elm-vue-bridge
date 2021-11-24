@@ -1,4 +1,12 @@
-import { ref, computed, watch, onMounted, defineComponent, h } from "vue";
+import {
+  ref,
+  computed,
+  watch,
+  onMounted,
+  defineComponent,
+  h,
+  ComponentObjectPropsOptions,
+} from "vue";
 
 type App = {
   ports: {
@@ -11,7 +19,13 @@ type App = {
 
 const elmBridge = (
   elm: unknown,
-  options?: string | { name?: string; props?: any; emit?: string[] }
+  options?:
+    | string
+    | {
+        name?: string;
+        props?: string[] | ComponentObjectPropsOptions;
+        emit?: string[];
+      }
 ) => {
   const name =
     typeof options === "string" ? options : options?.name || "ElmBridge";

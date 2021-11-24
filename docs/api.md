@@ -3,7 +3,7 @@
 ```ts
 function elmBridge(
   elm: unknown, 
-  options?: string | { name?: string; props?: any; emit?: string[] }
+  options?: string | { name?: string; props?: string[] | ComponentObjectPropsOptions; emit?: string[] }
 ): DefineComponent<{...}>
 ```
 
@@ -32,7 +32,7 @@ This is the name we are providing to our Vue component. It is optional, and if i
 
 #### `props`
 
-- Type: `any` (to be improved)
+- Type: `string[] | ComponentObjectPropsOptions`
 - Required: `false`
 
 If you want to pass props into your component (instead of using flags), you can define them here. Props defined here should be compatible with a Vue component. Keep in mind that this type structure must be reflected in the Elm code as well, or Elm will throw an error that unexpected data was provided to flags.
