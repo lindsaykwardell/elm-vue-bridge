@@ -25,6 +25,9 @@ npm install --save-dev elm-tooling vite-plugin-elm
 # Initialize elm tooling
 npx elm-tooling init
 npx elm init
+
+# Install elm and related tools
+npx elm-tooling install
 ```
 
 vite.config.js
@@ -47,6 +50,9 @@ npm install --save-dev elm-tooling elm-webpack-loader
 # Initialize elm tooling
 npx elm-tooling init
 npx elm init
+
+# Install elm and related tools
+npx elm-tooling install
 ```
 
 vue.config.js
@@ -77,6 +83,9 @@ npm install --save-dev elm-tooling vite-plugin-elm
 # Initialize elm tooling
 npx elm-tooling init
 npx elm init
+
+# Install elm and related tools
+npx elm-tooling install
 ```
 
 nuxt.config.ts

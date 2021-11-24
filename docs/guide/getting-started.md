@@ -15,6 +15,9 @@ npm install --save-dev elm-tooling vite-plugin-elm
 # Initialize elm tooling
 npx elm-tooling init
 npx elm init
+
+# Install elm and related tools
+npx elm-tooling install
 ```
 
   </CodeGroupItem>
@@ -29,6 +32,9 @@ npm install --save-dev elm-tooling elm-webpack-loader
 # Initialize elm tooling
 npx elm-tooling init
 npx elm init
+
+# Install elm and related tools
+npx elm-tooling install
 ```
 
   </CodeGroupItem>
@@ -43,6 +49,9 @@ npm install --save-dev elm-tooling vite-plugin-elm
 # Initialize elm tooling
 npx elm-tooling init
 npx elm init
+
+# Install elm and related tools
+npx elm-tooling install
 ```
   
   </CodeGroupItem>
@@ -109,10 +118,21 @@ export default defineNuxtConfig({
   
 </CodeGroup>
 
-## Update .gitignore
+## Update `.gitignore`
 
 ```bash
 # Add `elm-stuff` to your .gitignore file:
 
 echo 'elm-stuff' >> .gitignore
+```
+
+## Update `package.json`
+
+```json
+// Add the following command to automatically install elm and its tools
+{
+  "scripts": {
+    "postinstall": "elm-tooling install"
+  }
+}
 ```
