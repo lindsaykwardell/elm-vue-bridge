@@ -11,8 +11,8 @@
     "lint": "vue-tsc --noEmit",
     "test:unit": "cypress open-ct",
     "test:unit:ci": "cypress run-ct --quiet --reporter spec",
-    "prebuild": "elm-tooling install",
-    "prepare": "npm run lint && npm run test:unit:ci && npm run build",
+    "prebuild": "elm-tooling install && npm run lint && npm run test:unit:ci",
+    "prepare": "npm run build",
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs"
   },
