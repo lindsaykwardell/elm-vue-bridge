@@ -52,7 +52,7 @@ export default defineUserConfig<DefaultThemeOptions>({
       },
       {
         text: "API",
-        link: "/guide/api",
+        link: "/api",
       },
       {
         text: "Elm Guide",
