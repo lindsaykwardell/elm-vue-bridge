@@ -217,14 +217,27 @@ None of the above is to say, "Elm is better, stop using Vue/JS/whatever!" Vue is
 
 If you made it this far, and are still interested in giving Elm a shot, I highly recommend it.
 
+Curious about what incremental adoption of Elm could look like for your business? Watch this presentation by Richard Feldman about how he introduced Elm at NoRedInk:
+
+<div style="text-align: center">
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/5CYeZ2kEiOI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+
 ## Learning Resources
 
 Here's a few of the resources I've used to learn Elm:
 
+### Guides
 - [The Official Elm Guide](https://guide.elm-lang.org/)
 - [Beginning Elm](https://elmprogramming.com/)
 - [Elm In Action](https://www.manning.com/books/elm-in-action)
+
+### Podcasts
 - [Elm Radio](https://elm-radio.com/)
+- [Elm Town (not currently recording new episodes)](https://elmtown.simplecast.com/)
+- [Modern Web Podcast - Elm with Richard Feldman](https://modernweb.podbean.com/e/s08e014-modern-web-podcast-elm-with-richard-feldman/)
+
+### Community
 - [Elm Slack Community](https://elmlang.herokuapp.com/)
 
 <style>
