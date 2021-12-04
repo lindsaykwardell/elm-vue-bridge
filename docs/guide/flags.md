@@ -77,3 +77,4 @@ const Counter = elmBridge(Elm);
 ## Example
 
 <CounterWithFlags />
+
