@@ -1,7 +1,7 @@
 ---
 home: true
 title: Home
-heroImage: /images/elm.png
+heroImage: /images/elm-vue-bridge.webp
 actions:
   - text: Get Started
     link: /guide/getting-started

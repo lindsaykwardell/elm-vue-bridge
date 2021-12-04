@@ -1,5 +1,7 @@
 # elm-vue-bridge
 
+![](/docs/.vuepress/public/images/elm-vue-bridge.webp)
+
 ### **Bridge to render Elm modules in a Vue application**
 
 Renders Elm modules within Vue 3. If you need to support Vue 2, please continue to use the previous major version.

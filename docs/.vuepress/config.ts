@@ -7,9 +7,10 @@ export default defineUserConfig<DefaultThemeOptions>({
   lang: "en-US",
   title: "elm-vue-bridge",
   description: "Render Elm modules in a Vue app",
+  head: [["link", { rel: "icon", href: "/images/elm-vue-bridge.webp" }]],
 
   themeConfig: {
-    logo: "/images/elm.png",
+    logo: "/images/elm-vue-bridge.webp",
     contributors: false,
     sidebar: {
       "/": [
