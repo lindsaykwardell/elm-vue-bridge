@@ -150,62 +150,82 @@ Hint: Elm does not have “truthiness” such that ints and strings and lists ar
 automatically converted to booleans. Do that conversion explicitly!
 ```
 
-### No Framework Churn
+### No Javascript Churn
 
-<table>
-  <thead>
-    <tr>
-      <th>JavaScript</th>
-      <th>Elm</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-        <td>npm/yarn</td>
-        <td>Built in</td>
-    </tr>
-    <tr>
-        <td>Vue 2/3</td>
-        <td>Built in</td>
-    </tr>
-    <tr>
-        <td>Vuex/Pinia/Harlem</td>
-        <td>Built in</td>
-    </tr>
-    <tr>
-        <td>Object.freeze/readonly</td>
-        <td>Built in</td>
-    </tr>
-    <tr>
-        <td>TypeScript</td>
-        <td>Built in</td>
-    </tr>
-    <tr>
-        <td>Webpack/Rollup/etc</td>
-        <td>Built in</td>
-    </tr>
-    <tr>
-        <td>ESLint/Prettier</td>
-        <td>Elm Format</td>
-    </tr>
-    <tr>
-        <td>Jest/Mocha</td>
-        <td>Elm Test</td>
-    </tr>
-  </tbody>
-</table>
+One of the truths of modern Javascript development is that the recommended tools are always changing. Over the last year, the Vue ecosystem has gone through its own shift - Vue 3, `<script setup>`, Composition API, Pinia instead of Vuex, Vite over Webpack, and more change in the library ecosystem as well. Change can be a good thing! But it can also be exhausting.
+
+Elm, and by extension the Elm ecosystem, is very stable in comparison. On top of that, the tools to build Elm applications are typically part of the core language library, rather than third-party (with a couple exceptions). By adopting Elm, you can be pretty sure that the code you write today won't go out of style by the end of the year.
+
+#### Package Management
+
+In Javascript, we have three typical options for package management: npm, yarn, and pnpm. In addition, packages can be imported from resources like Unpkg, or directly from Github (such as in Deno). All of these are third-party tools and resources hosting code, which have been adopted by the JS community.
+
+Elm has its own package management system, outside of NPM or Github. All Elm packages are hosted on https://package.elm-lang.org/, and can be installed by using `elm install`.
+
+#### Framework
+
+Looking purely at Vue, the framework has gone through a number of updates recently. Vue 3 released over a year ago, with two minor versions since. The recommended patterns for building with Vue have also changed over that time. In addition, frameworks built on top of Vue (such as Gridsome, Quasar, and Nuxt) have all gone through their own churn and changes.
+
+Elm practically doesn't have frameworks. There are some framework-style libraries (such as Elm Pages or Elm SPA) that can be beneficial, but they are more the exception than the rule. All Elm applications follow The Elm Architecture, which is a pattern for building applications that has been baked into the language, removing much of the need for framework code.
+
+#### Global State Management
+
+In Vue today, we are seeing a rise in the number of state management libraries. Established tools like Vuex and Pinia are constantly evolving, while newcomers like Harlem are also working to improve the situation in state management.
+
+Because of Elm's functional nature, there is only global state, and the language lends itself to managing it well. In fact, Elm is the inspiration for libraries like Redux. All state is managed at a global scope, and updates to that state return immutable values.
+
+#### Immutability
+
+Speaking of immutability, it's often desireable in large applications to be able to pass readonly values from global state into local portions of the code. However, even with tools like Vuex, global state can be accidentally mutated if developers are not careful, and no errors will be thrown by Vue or Vuex when that happens.
+
+Elm removes this issue entirely, as all state is immutable. Functions that alter the state of an object or record must return a new record with updated values, rather than altering the existing object. This removes concerns about accidental mutations altogether, allowing for more confidence that state is not changing when it's not expected.
+
+#### Type System
+
+Vue 3 has gone to great lengths to adopt Typescript, and provide type safety to Vue applications. It's trivial to enable Typescript in a Vue component, and with updates made to Pinia and Vuex it's easier than ever to correctly type global state. However, Typescript's type system is not perfectly sound, and has a number of escape hatches (in order to enable compatibility with Javascript). Typescript also does not validate the incoming type of API responses, or potentially altered data structures, meaning that the type system is only useful during development.
+
+Elm's type system allows a codebase to be statically analyzed, ensuring that all types are exactly what they should be. Elm code does not compile if the types are not aligned with what they should be. Any data flowing into an Elm application must also be parsed into Elm types, preventing the wrong data from ever entering the application (even during runtime).
+
+#### Build Tools
+
+Javascript today has a number of build tools and bundlers - Webpack, Rollup, Parcel, esbuild, and more. This is a very exciting space for frontend development! Elm, as a compile-to-JS language, has plenty of interoperability with these tools, but in addition comes with its own build tool and development environment. There's no need for extra tooling beyond Elm itself if you don't want or need it.
+
+#### Linting and Formatting
+
+A more recent addition to Javascript tooling is Prettier, the code formatting tool. This tool ensures that JS code looks the same across a codebase, which is a huge benefit when multiple developers are working on the same code. This can be an issue since Javascript can be written in any way the developer chooses, as long as it is syntactically correct (Should we use tabs, or spaces? How many spaces?). Linting is also especially helpful, validating your code and finding small errors or technical debt you may not be aware of.
+
+Elm provides a guideline for how all Elm code should be structured, removing the bikeshedding discussions altogether. A community tool called [elm-format](https://github.com/avh4/elm-format) provides automatic code formatting, removing the need to manually format your code to match this format. For linting, [elm-review](https://package.elm-lang.org/packages/jfmengels/elm-review/latest/) is a tool that serves a similar purpose, ensuring that all code matches a standard level of quality.
+
+#### Testing
+
+There are numerous testing framework in the Javascript ecosystem. For unit tests, there's Mocha, Chai, Jasmine, and Jest are the more common ones, with smaller projects like uvu also available. These frameworks then need to be configured to integrate properly into your project - ensure Typescript is working properly between them, integrate the Vue Test Utils (and potentially testing-library).
+
+Elm has one solution for unit testing - [elm-test](https://github.com/elm-explorations/test). It provides all the required functionality to test and validate Elm code from a unit test perspective.
+
+Because Elm compiles to JS, and is used in the browser, it's also pretty straightforward to enable testing with Cypress (including Cypress Component Testing, if you're integrating with Vue!).
+
 
 ### Enforced Semantic Versioning
 
-## The Elm Architecture
+Because of Elm's strong type system and its first-party package ecosystem, Elm is also able to enforce semantic versioning on any packages released to the public. Conversely, versioning in Javascript is fully up to the developer. Want to make breaking changes to your API? Go for it, but let's call that a patch instead of a major release. Only have minor updates but want to bump the major or minor version? Sure, that's fine too! While many developers are disciplined enough not to make these kinds of changes, it is still a constant that it could happen, leading to issues when updating node modules.
 
-## Javascript Interop
+Elm's enforcement of semantic versioning helps both the package developer as well as the package consumers. If a major version is released, you can know for certain that there are breaking changes. Likewise, a minor update can be known to add functionality, but will remain compatible with your existing setup.
 
-### Flags
+## Try it out!
 
-### Ports
+None of the above is to say, "Elm is better, stop using Vue/JS/whatever!" Vue is still my JS framework of choice, and I'm very happy when I get to use it. However, I have found in my experience that Elm allows me to write more resiliant code, that I am more capable of maintaining and refactoring, and I can be more certain that functionality is what I expect it to be with every release. Of all my side projects, the one that is the oldest and most complex is written in Elm. All others are either small, or abandoned. 
 
-### Web Components
+If you made it this far, and are still interested in giving Elm a shot, I highly recommend it.
+
+## Learning Resources
+
+Here's a few of the resources I've used to learn Elm:
+
+- [The Official Elm Guide](https://guide.elm-lang.org/)
+- [Beginning Elm](https://elmprogramming.com/)
+- [Elm In Action](https://www.manning.com/books/elm-in-action)
+- [Elm Radio](https://elm-radio.com/)
+- [Elm Slack Community](https://elmlang.herokuapp.com/)
 
 <style>
   table {
