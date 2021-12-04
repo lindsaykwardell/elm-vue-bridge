@@ -10,6 +10,7 @@ export default defineUserConfig<DefaultThemeOptions>({
 
   themeConfig: {
     logo: "/images/elm.png",
+    contributors: false,
     sidebar: {
       "/": [
         {
