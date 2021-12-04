@@ -1,6 +1,6 @@
 # elm-vue-bridge
 
-<img src="https://raw.githubusercontent.com/lindsaykwardell/elm-vue-bridge/main/docs/.vuepress/public/images/elm-vue-bridge.webp" style="width: 400px">
+<img src="https://raw.githubusercontent.com/lindsaykwardell/elm-vue-bridge/main/docs/.vuepress/public/images/elm-vue-bridge.webp" style="width: 400px; margin: 0 auto">
 
 ### **Bridge to render Elm modules in a Vue application**
 
