@@ -2,9 +2,9 @@
 
 ## Why Change?
 
-When thinking about adopting a new language or framework, the first question that often comes to mind is, "but why?" I think there are many reasons that web developers try out new frameworks. We can see those developers who want to be at the bleeding edge of the Javascript ecosystem, trying out new frameworks as they release (or often before, during open betas). We can see those who have used a framework (such as React or Vue) for some time, have grown accustomed to it, but want to see what's going on outside their typical sphere of knowledge. We also see those who have become less interested in the framework churn, and just want to get work done with the best tool for the job.
+When thinking about adopting a new language or framework, the first question that often comes to mind is, "but why?" There are many reasons that web developers try out new frameworks. We can see those developers who want to be at the bleeding edge of the Javascript ecosystem, trying out new frameworks as they release (or often before, during open betas). We can see those who have used a framework (such as React or Vue) for some time, have grown accustomed to it, but want to see what's going on outside their typical sphere of knowledge. We also see those who have become less interested in the framework churn, and just want to get work done with the best tool for the job.
 
-All of these are valid reasons to try out something new. Learning a new programming language or framework can provide new perspective on solving complex problems, managing common cases like state management or error handling. As someone who spent a good chunk of time early in her career rebuilding the same project in multiple frameworks, I personally recognize the appeal of this approach to learning.
+All of these are valid reasons to try out something new. Learning a new programming language or framework can provide new perspective on solving complex problems, managing common cases like state management or error handling. There is certainly an appeal of this approach to learning.
 
 This article is intended to answer the second question: "but why Elm?" That one can be trickier, especially for Javascript developers. Learning a framework has obvious benefits; learning multiple frameworks leads to a deeper understanding of the ecosystem at large, and overall best patterns to handle web applications. Why learn a different language for web development, when the language native to the web is already available to you?
 
@@ -72,7 +72,7 @@ Elm also has no concept of `null` in the language. Null values (and undefined in
 
 ## A delightful language
 
-One of the things that most caught my attention when starting with Elm was how nice it felt to work with. I would often find myself starting to use its syntax, or wishing I could do things in the way that Elm is structured, rather than continue to use the Javascript approach. The reliability it provided, plus the developer experience, has made Elm the language I turn to for any long-term side project (my longest lasting side project was started over two years ago, and I can still do a complete refactor of it with confidence that I'm not breaking something or missing a change).
+One of the things that catches many developers' interest when starting with Elm was how nice it feels to work with. The language and its tooling lend itself to a friendly developer experience, including helpful error messages, a consistent ecosystem, and a resulting codebase that feels safe enough to refactor when the time comes.
 
 ### Helpful Compiler
 
@@ -213,11 +213,11 @@ Elm's enforcement of semantic versioning helps both the package developer as wel
 
 ## Try it out!
 
-None of the above is to say, "Elm is better, stop using Vue/JS/whatever!" However, Elm allows you to write more resiliant code, that I am more capable of maintaining and refactoring, and I can be more certain that functionality is what I expect it to be with every release. Of all my side projects, the one that is the oldest and most complex is written in Elm. All others are either small, or abandoned. 
+None of the above is to say, "Elm is better, stop using Vue/JS/whatever!" However, Elm allows you to write more resiliant code, that you will be more capable of maintaining and refactoring, and you can be more certain that functionality is what you expect it to be with every release.
 
-If you made it this far, and are still interested in giving Elm a shot, I highly recommend it.
+The simplest way to get started with Elm is by adopting it incrementally, rather than starting a whole application from scratch. Put it to the test, building out a feature and seeing how it feels to work with and refactor. Then, if it feels worth investing more time in, you can expand Elm into the rest of your codebase. That's the purpose of `elm-vue-bridge`, to provide an easy way to start experimenting with Elm and interact between the two frontend tools. If you're using React, a great option for a similar component is [`elm-react-component`](https://github.com/Parasrah/elm-react-component).
 
-Curious about what incremental adoption of Elm could look like for your business? Watch this presentation by Richard Feldman about how he introduced Elm at NoRedInk:
+Curious about what incremental adoption of Elm could look like? Watch this presentation by Richard Feldman about how he introduced Elm at NoRedInk:
 
 <div style="text-align: center">
   <iframe width="560" height="315" src="https://www.youtube.com/embed/5CYeZ2kEiOI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -225,7 +225,7 @@ Curious about what incremental adoption of Elm could look like for your business
 
 ## Learning Resources
 
-Here's a few of the resources I've used to learn Elm:
+Here's a few resources you can use to learn more about Elm:
 
 ### Guides
 - [The Official Elm Guide](https://guide.elm-lang.org/)
