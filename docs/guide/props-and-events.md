@@ -92,7 +92,7 @@ Let's register our Vue component. Rather than just passing in the imported Elm m
 
 Internally, the `emit` and `props` will be converted to a mixin, and applied to the custom Vue component. With that, we can now pass in props and bind to events as we would with any normal Vue component!
 
-```vue
+```vue {5-21,25-32}
 <script setup>
 import elmBridge from 'elm-vue-bridge';
 import { Elm } from './Main.elm';

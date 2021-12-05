@@ -61,7 +61,7 @@ main =
 
 In our Vue component, we then import and create the component as before. We also pass the initial value for Elm in as the `:flags` prop.
 
-```vue
+```vue {9}
 <script setup>
 import elmBridge from 'elm-vue-bridge';
 import { Elm } from './Main.elm';

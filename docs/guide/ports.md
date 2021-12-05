@@ -78,7 +78,7 @@ main =
 
 Now, in our Vue component, we can both subscribe to and send messages to Elm. If you're unfamiliar with the syntax, check out Elm's documentation on "Outgoing Messages" and "Incoming Messages".
 
-```vue
+```vue {2,7-16,20-21}
 <script setup>
 import { ref } from "vue";
 import { Elm } from "./Main.elm";
