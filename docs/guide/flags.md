@@ -12,7 +12,7 @@ From [the Elm docs](https://guide.elm-lang.org/interop/flags.html):
 > 
 > Common uses are passing in API keys, environment variables, and user data. This can be handy if you generate the HTML dynamically. They can also help us load cached information in this localStorage example.
 
-In `elm-vue-bridge`, flags are a component prop. The prop takes any data type, but Elm will throw an error if the provided flag is not the expected type. If a flag is expect in Elm, it must be passed into the Vue component.
+In `elm-vue-bridge`, flags are a component prop. The prop takes any data type, but Elm will throw an error if the provided flag is not the expected type. ed in Elm, it must be passed into the Vue component.
 
 ## Add flag to Elm
 
