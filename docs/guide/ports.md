@@ -54,7 +54,7 @@ update msg model =
             ( model - 1, sendCount (model - 1) )
 
         Set value ->
-            ( value, Cmd.none )
+            ( value, sendCount value )
 
 
 view model =
@@ -78,29 +78,37 @@ main =
 
 Now, in our Vue component, we can both subscribe to and send messages to Elm. If you're unfamiliar with the syntax, check out Elm's documentation on "Outgoing Messages" and "Incoming Messages".
 
-```vue {2,7-16,20-21}
+```vue {2,8-22,26-28}
 <script setup>
 import { ref } from "vue";
-import { Elm } from "./Main.elm";
-import elmBridge from "./lib";
+import elmBridge from 'elm-vue-bridge';
+import { Elm } from './Main.elm';
 
-const Counter = elmBridge(Elm);
+const Counter = elmBridge(Elm, "CounterWithPorts");
+
 const counter = ref(2);
+let ports;
 
-function ports(ports) {
-  ports.receiveCount.send(counter.value);
+function registerPorts(p) {
+  ports = p;
 
   ports.sendCount.subscribe((count) => {
     console.log(count);
     counter.value = count;
   });
 }
+
+function setCount() {
+  ports?.receiveCount.send(5);
+}
 </script>
 
 <template>
-  <CounterWithPorts :flags="0" :ports="ports" />
-  The value in Vue is: {{ counter }}
+  <Counter :flags="0" :ports="registerPorts" />
+  <p>The value in Vue is: {{ counter }}</p>
+  <button @click="setCount">Set to 5</button>
 </template>
+
 
 ```
 

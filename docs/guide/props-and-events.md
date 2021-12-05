@@ -59,7 +59,7 @@ update msg model =
             ( model - 1, sendCount (model - 1) )
 
         Set value ->
-            ( value, Cmd.none )
+            ( value, sendCount value )
 
 
 view model =
