@@ -1,6 +1,5 @@
 import {
   ref,
-  computed,
   watch,
   onMounted,
   defineComponent,
@@ -49,10 +48,10 @@ const elmBridge = (
       let app: null | App = null;
       const mountable = ref();
 
-      const computedProps = computed(() => props);
-
       if (props)
-        watch(computedProps, () => app?.ports.updateProps?.send(props));
+        watch(props, () => {
+          app?.ports.updateProps?.send(props);
+        });
 
       function findInit(
         elm: any

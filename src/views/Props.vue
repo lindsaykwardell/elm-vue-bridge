@@ -1,19 +1,8 @@
 <script setup lang="ts">
 import { ref } from "vue";
-import CounterWithProps from "../Components/CounterWithProps/CounterWithProps";
-
-const value = ref(3);
-
-function sendCount(val: number) {
-  console.log(val);
-}
+import CounterWithPropsWrapper from "../Components/CounterWithProps/CounterWithPropsWrapper.vue";
 </script>
 
 <template>
-  <CounterWithProps :initialValue="value" @sendCount="sendCount" />
-
-  <p>
-    <button @click="value++">+</button>
-    <button @click="value--">-</button>
-  </p>
+  <CounterWithPropsWrapper />
 </template>

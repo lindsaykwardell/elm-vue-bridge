@@ -21,7 +21,7 @@ it("CounterWithPorts", () => {
   cy.get("#counter")
     .findByText("4")
     .should("exist")
-    .then(() => expect(receivedValue).to.equal(0));
+    .then(() => expect(receivedValue).to.equal(4));
   cy.findByText("+").click();
   cy.get("#counter")
     .findByText("5")
