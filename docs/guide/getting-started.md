@@ -120,6 +120,8 @@ export default defineNuxtConfig({
 
 ## Update `.gitignore`
 
+Elm uses a folder called `elm-stuff` to store installed packages and compiled code. It shouldn't be commited, so let's add it to `.gitignore`
+
 ```bash
 # Add `elm-stuff` to your .gitignore file:
 
@@ -134,5 +136,15 @@ echo 'elm-stuff' >> .gitignore
   "scripts": {
     "postinstall": "elm-tooling install"
   }
+}
+```
+
+## Typescript (optional)
+
+Because we aren't worrying about the type structure of imported Elm code (it just goes into `elmBridge` as an argument), create `elm.d.ts` in the root of your application and add the following:
+
+```ts
+declare module "*.elm" {
+  export const Elm: unknown;
 }
 ```

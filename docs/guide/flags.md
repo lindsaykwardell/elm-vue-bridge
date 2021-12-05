@@ -16,9 +16,9 @@ In `elm-vue-bridge`, flags are a component prop. The prop takes any data type, b
 
 ## Add flag to Elm
 
-Let's update our Elm counter module to accept a flag. Update your `Main.elm` to the following:
+Let's update our Elm counter module to accept a flag. Update your `Main.elm` to the following (changes highlighted):
 
-```elm
+```elm {8-9,17,21,24,36}
 module Main exposing (main)
 
 import Browser

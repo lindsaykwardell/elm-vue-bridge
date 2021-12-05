@@ -16,17 +16,12 @@ Let's update our Elm code to the below. For this functionality to work, we are u
 
 We're also adding an addition port, `updateProps`. This port is used by the Vue component (if present in your Elm code) whenever your props values change. It will pass in the latest version of the object into Elm, where you can then handle updating your Elm model as needed.
 
-```elm
-port module Components.CounterWithProps.Main exposing (main)
+```elm {8-10,24,54-59}
+port module Main exposing (main)
 
 import Browser
-import Html exposing (Html, button, div, text)
-import Html.Attributes exposing (style)
+import Html exposing (button, div, text)
 import Html.Events exposing (onClick)
-
-
-type alias Model =
-    Int
 
 
 type alias Flags =
@@ -34,7 +29,7 @@ type alias Flags =
     }
 
 
-init : Flags -> ( Model, Cmd Msg )
+init : Flags -> ( Int, Cmd Msg )
 init { initialValue } =
     ( initialValue, Cmd.none )
 
@@ -54,7 +49,7 @@ type Msg
     | Set Int
 
 
-update : Msg -> Model -> ( Model, Cmd Msg )
+update : Msg -> Int -> ( Int, Cmd Msg )
 update msg model =
     case msg of
         Increment ->
@@ -83,10 +78,8 @@ subscriptions _ =
         ]
 
 
-main : Program Flags Model Msg
 main =
     Browser.element { init = init, update = update, view = view, subscriptions = subscriptions }
-
 ```
 
 ## Register custom Vue props and emits

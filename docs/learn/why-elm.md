@@ -213,7 +213,7 @@ Elm's enforcement of semantic versioning helps both the package developer as wel
 
 ## Try it out!
 
-None of the above is to say, "Elm is better, stop using Vue/JS/whatever!" Vue is still my JS framework of choice, and I'm very happy when I get to use it. However, I have found in my experience that Elm allows me to write more resiliant code, that I am more capable of maintaining and refactoring, and I can be more certain that functionality is what I expect it to be with every release. Of all my side projects, the one that is the oldest and most complex is written in Elm. All others are either small, or abandoned. 
+None of the above is to say, "Elm is better, stop using Vue/JS/whatever!" However, Elm allows you to write more resiliant code, that I am more capable of maintaining and refactoring, and I can be more certain that functionality is what I expect it to be with every release. Of all my side projects, the one that is the oldest and most complex is written in Elm. All others are either small, or abandoned. 
 
 If you made it this far, and are still interested in giving Elm a shot, I highly recommend it.
 

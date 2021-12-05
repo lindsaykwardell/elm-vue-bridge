@@ -4,7 +4,7 @@ From the [Elm Guide](https://guide.elm-lang.org/), the official guide to learnin
 
 > Elm is a functional language that compiles to JavaScript. It helps you make websites and web apps. It has a strong emphasis on simplicity and quality tooling.
 
-As a language, Elm is an excellent way to get started in functional programming using the web as a platform. Its strong emphasis on being delightful to developers makes learning the language and building applications for it very enjoyable. In fact, it's my favorite programming language for projects of all sizes!
+As a language, Elm is an excellent way to get started in functional programming using the web as a platform. Its strong emphasis on being delightful to developers makes learning the language and building applications for it very enjoyable. It's a perfect language for projects of all sizes!
 
 Often, when a developer is starting with a new framework or language, the initial instinct is to build new projects using that tool. This can be very instructive, especially with a programming language. However, one of the strengths of Elm is that it compiles to Javascript, and as such it can be integrated with any existing web application.
 

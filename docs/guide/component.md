@@ -60,4 +60,3 @@ const Counter = elmBridge(Elm);
 ## Example
 
 <Counter />
-

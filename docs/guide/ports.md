@@ -18,9 +18,9 @@ In `elm-vue-bridge`, the `ports` prop takes a function. This function receives a
 
 ## Add ports to Elm
 
-Let's look at a basic example of using ports with `elm-vue-bridge`. First, update your `Main.elm` to the below:
+Let's look at a basic example of using ports with `elm-vue-bridge`. First, update your `Main.elm` to the below (changes highlighted):
 
-```elm
+```elm {1,12-15,21,27-34,45-51}
 port module Main exposing (main)
 
 import Browser
