@@ -2,16 +2,14 @@
 
 <img src="https://raw.githubusercontent.com/lindsaykwardell/elm-vue-bridge/main/docs/.vuepress/public/images/elm-vue-bridge.webp" style="width: 400px">
 
-### **Bridge to render Elm modules in a Vue application**
+## **Bridge to render Elm modules in a Vue application**
 
-Renders Elm modules within Vue 3. If you need to support Vue 2, please continue to use the previous major version.
+Renders Elm 0.19 modules within Vue 3. If you need to support Vue 2, please continue to use the previous major version.
 
 ![npm](https://img.shields.io/npm/v/elm-vue-bridge)
 ![npm](https://img.shields.io/npm/dw/elm-vue-bridge)
 ![GitHub Workflow Status (branch)](https://img.shields.io/github/workflow/status/lindsaykwardell/elm-vue-bridge/ci/main)
 ![NPM](https://img.shields.io/npm/l/elm-vue-bridge)
-
-<a id="/usage"></a>&nbsp;
 
 ## Usage
 
