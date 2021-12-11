@@ -5,6 +5,7 @@ import {
   defineComponent,
   h,
   ComponentObjectPropsOptions,
+  computed,
 } from "vue";
 
 type App = {
@@ -48,10 +49,11 @@ const elmBridge = (
       let app: null | App = null;
       const mountable = ref();
 
-      if (props)
-        watch(props, () => {
-          app?.ports.updateProps?.send(props);
-        });
+      const _props = computed(() => props)
+
+      watch(() => ({..._props.value}), (val) => {
+        app?.ports.updateProps?.send(val);
+      });
 
       function findInit(
         elm: any
