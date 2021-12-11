@@ -14,7 +14,7 @@ One caveat: Whatever props you want to pass into your Elm component will be cons
 
 Let's update our Elm code to the below. For this functionality to work, we are updating our `init` function to take a record, `Flags`, which has an `initialValue : Int`.
 
-We're also adding an addition port, `updateProps`. This port is used by the Vue component (if present in your Elm code) whenever your props values change. It will pass in the latest version of the object into Elm, where you can then handle updating your Elm model as needed.
+We're also adding an additional port, `updateProps`. This port is used by the Vue component (if present in your Elm code) whenever your props values change. It will pass in the latest version of the object into Elm, where you can then handle updating your Elm model as needed.
 
 ```elm {8-10,24,54-59}
 port module Main exposing (main)

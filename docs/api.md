@@ -7,7 +7,7 @@ function elmBridge(
 ): DefineComponent<{...}>
 ```
 
-`elm-vue-bridge` provides a single function, `elmBridge`, which is used to genereate a Vue component from an Elm module. It takes two arguments:
+`elm-vue-bridge` provides a single function, `elmBridge`, which is used to generate a Vue component from an Elm module. It takes two arguments:
 
 ### `elm`
 
